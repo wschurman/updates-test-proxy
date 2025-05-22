@@ -1,6 +1,6 @@
 export async function GET(request: Request) {
   const urlToFetch = new URL(request.url);
-  urlToFetch.host = `u.expo.dev`;
+  urlToFetch.host = `staging-u.expo.dev`;
   urlToFetch.port = '';
   urlToFetch.protocol = 'https:';
   urlToFetch.pathname = urlToFetch.pathname.replace('/manifest', '');
@@ -10,7 +10,7 @@ export async function GET(request: Request) {
       ...Object.fromEntries(request.headers.entries()),
       'Accept-Encoding': '*',
       'cache-control': 'no-cache',
-      host: `u.expo.dev`,
+      host: `staging-u.expo.dev`,
     },
   });
 }
