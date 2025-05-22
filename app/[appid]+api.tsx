@@ -3,7 +3,6 @@ export async function GET(request: Request) {
   urlToFetch.host = `staging-u.expo.dev`;
   urlToFetch.port = '';
   urlToFetch.protocol = 'https:';
-  urlToFetch.pathname = urlToFetch.pathname.replace('/manifest', '');
   return await fetch(urlToFetch, {
     method: request.method,
     headers: {
