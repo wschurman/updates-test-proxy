@@ -6,8 +6,8 @@ export async function GET(request: Request) {
   return await fetch(urlToFetch, {
     method: request.method,
     headers: {
-      ...Object.fromEntries(request.headers.entries()),
-      'Accept-Encoding': '*',
+      'accept': request.headers.get('accept') || '*/*',
+      'accept-encoding': request.headers.get('accept-encoding') || 'gzip, br',
       'cache-control': 'no-cache',
       host: `staging-u.expo.dev`,
     },
