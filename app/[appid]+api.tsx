@@ -1,6 +1,6 @@
 export async function GET(request: Request) {
   const urlToFetch = new URL(request.url);
-  urlToFetch.host = `staging-u.expo.dev`;
+  urlToFetch.host = `u.expo.dev`;
   urlToFetch.port = '';
   urlToFetch.protocol = 'https:';
   return await fetch(urlToFetch, {
@@ -9,7 +9,7 @@ export async function GET(request: Request) {
       'accept': request.headers.get('accept') || '*/*',
       'accept-encoding': request.headers.get('accept-encoding') || 'gzip, br',
       'cache-control': 'no-cache',
-      host: `staging-u.expo.dev`,
+      host: `u.expo.dev`,
     },
   });
 }
