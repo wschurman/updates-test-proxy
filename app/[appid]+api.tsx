@@ -13,7 +13,7 @@ export async function GET(request: Request) {
   );
 
   try {
-    const result = await fetch(urlToFetch, {
+    return await fetch(urlToFetch, {
       method: request.method,
       headers: {
         ...updateRequestHeaders,
@@ -21,11 +21,6 @@ export async function GET(request: Request) {
         'accept-encoding': request.headers.get('accept-encoding') || 'gzip, br',
         'cache-control': 'no-cache'
       },
-    });
-
-    return new Response(result.body, {
-      status: result.status,
-      headers: result.headers,
     });
   } catch(e) {
     console.error(e);
